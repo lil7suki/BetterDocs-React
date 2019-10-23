@@ -1,5 +1,5 @@
 import React from "react"
-import Layout from '../components/layout-mobile-footer'
+import Layout from '../components/layout'
 //import style from '../styles/themes-tags.module.scss'
 import { graphql, Link } from "gatsby"
 import Headroom from 'react-headroom';

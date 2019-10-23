@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/layout-mobile-footer'
+import Layout from '../components/layout'
 //import theme from '../styles/themes.module.scss'
 //import featured from '../styles/theme-featured-section.module.scss'
 import { graphql, Link } from "gatsby"

@@ -1,5 +1,5 @@
 import React from 'react'
-import Layout from '../components/layout-mobile-footer'
+import Layout from '../components/layout'
 import { Helmet } from "react-helmet";
 import { graphql, Link } from 'gatsby'
 import '../styles/tooltips.css'

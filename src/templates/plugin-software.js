@@ -1,6 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Layout from '../components/layout-mobile-footer'
+import Layout from '../components/layout'
 //import Info from '../components/plugin-info'
 //import plugin from '../styles/plugin-software.module.scss'
 import { graphql, Link } from "gatsby"
