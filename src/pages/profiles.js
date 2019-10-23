@@ -1,4 +1,5 @@
 import React from "react"
+import Layout from '../components/layout'
 //import style from '../styles/themes-tags.module.scss'
 import { graphql, Link } from "gatsby"
 import Headroom from 'react-headroom';
@@ -18,69 +19,69 @@ const ProfilesPage = ({data}) => {
   //const tags = data.tags;
 
   return (
-    <>
-      <Helmet>
-        <meta charSet="utf-8" />
-        <title>Profiles | Discord Source</title>
-        <meta property="og:site_name" content="Discord Source"/>
-        <meta property="og:title" content={`Profiles | Discord Source`}/>
-        <meta property="og:description" content={ "There are " + totalCount + ` Profiles`}/>
-        <meta property="og:url" content="https://discordsource.com/themes/" />
-      </Helmet>
-      <Container>
-      <GlobalStyle />
-        <Content>
-          <Hero>
-            <MainText>Browse Themes/Plugins</MainText>
-            <h2 style={{textAlign: "center", color: "#fff"}}>by Author</h2>
-            <SubTextt href="https://developer.github.com/v3/users/">Powered by Github</SubTextt>
-          </Hero>
-        <TitleBarHeadroom disableInlineStyles>
-          <TitleBar>
-            <Count>#Profiles <span>({totalCount})</span></Count>
-            <RightSide>
-              <Search placeholder="Search Profiles (WIP)" ></Search>
-              <Help target="blank" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" data-balloon="Need help?" data-balloon-pos="left">?</Help>
-            </RightSide>
-          </TitleBar>
-        </TitleBarHeadroom>
+    <Layout>
+    <Helmet>
+      <meta charSet="utf-8" />
+      <title>Profiles | Discord Source</title>
+      <meta property="og:site_name" content="Discord Source"/>
+      <meta property="og:title" content={`Profiles | Discord Source`}/>
+      <meta property="og:description" content={ "There are " + totalCount + ` Profiles`}/>
+      <meta property="og:url" content="https://discordsource.com/themes/" />
+    </Helmet>
+    <Container>
+    <GlobalStyle />
+      <Content>
+        <Hero>
+          <MainText>Browse Themes/Plugins</MainText>
+          <h2 style={{textAlign: "center", color: "#fff"}}>by Author</h2>
+          <SubTextt href="https://developer.github.com/v3/users/">Powered by Github</SubTextt>
+        </Hero>
+      <TitleBarHeadroom disableInlineStyles>
+        <TitleBar>
+          <Count>#Profiles <span>({totalCount})</span></Count>
+          <RightSide>
+            <Search placeholder="Search Profiles (WIP)" ></Search>
+            <Help target="blank" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" data-balloon="Need help?" data-balloon-pos="left">?</Help>
+          </RightSide>
+        </TitleBar>
+      </TitleBarHeadroom>
 
-          <Main>
-            <Wrapper>
-              {edges.map(({ node }) => {
-                return (
-                  <LazyLoad key={node.id} height="10rem">
-                    <Card
-                    title={node.frontmatter.author_id} 
-                    thumbnail={node.frontmatter.avatar_url}
-                    slug={node.fields.slug}
-                    theme={node.frontmatter.theme_developer}
-                    plugin={node.frontmatter.plugin_developer}
-                    tags={node.frontmatter.tags}
-                    author={node.frontmatter.author_id}
-                    excerpt={node.excerpt}
-                    demo={node.frontmatter.demo}
-                    mode={node.frontmatter.style}
-                    featured= {node.frontmatter.featured}
-                    bio={node.frontmatter.bio}
-                    />
-                  </LazyLoad>
-                )
-              })}
-            </Wrapper>
-          </Main>
-        </Content>
+        <Main>
+          <Wrapper>
+            {edges.map(({ node }) => {
+              return (
+                <LazyLoad key={node.id} height="10rem">
+                  <Card
+                  title={node.frontmatter.author_id} 
+                  thumbnail={node.frontmatter.avatar_url}
+                  slug={node.fields.slug}
+                  theme={node.frontmatter.theme_developer}
+                  plugin={node.frontmatter.plugin_developer}
+                  tags={node.frontmatter.tags}
+                  author={node.frontmatter.author_id}
+                  excerpt={node.excerpt}
+                  demo={node.frontmatter.demo}
+                  mode={node.frontmatter.style}
+                  featured= {node.frontmatter.featured}
+                  bio={node.frontmatter.bio}
+                  />
+                </LazyLoad>
+              )
+            })}
+          </Wrapper>
+        </Main>
+      </Content>
 
-      </Container>
-      <UploadContainer>
-          <UploadBtn to="/theme/upload-a-theme/">
-          +
-          </UploadBtn>
-      </UploadContainer>
-      <HelpContainer>
-          <HelpBtn data-balloon="Need help with theme installation?" data-balloon-pos="left" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" target="blank">?</HelpBtn>
-      </HelpContainer>
-    </>
+    </Container>
+    <UploadContainer>
+        <UploadBtn to="/theme/upload-a-theme/">
+        +
+        </UploadBtn>
+    </UploadContainer>
+    <HelpContainer>
+        <HelpBtn data-balloon="Need help with theme installation?" data-balloon-pos="left" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" target="blank">?</HelpBtn>
+    </HelpContainer>
+    </Layout>
   )
 }
 

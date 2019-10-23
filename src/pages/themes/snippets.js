@@ -1,44 +1,43 @@
-import React from "react"
-import PropTypes from "prop-types"
-import Layout from '../components/layout'
-//import style from '../styles/themes-tags.module.scss'
+import React from 'react'
+import Layout from 'src/components/layout'
+//import theme from 'src/styles/themes.module.scss'
 import { graphql, Link } from "gatsby"
+import { Helmet } from "react-helmet";
+//import AniLink from "gatsby-plugin-transition-link/AniLink"
+//import 'src/styles/theme-featured.css'
 import Headroom from 'react-headroom';
-import '../styles/tooltips.css'
-import Card from '../components/themes/tags-card'
+import 'src/styles/tooltips.css'
+import Card from 'src/components/themes/card'
 import styled from 'styled-components';
 import * as variable from 'src/styles/variables'
 import { rgba, darken } from 'polished'
 import LazyLoad from "react-lazyload"
 import { createGlobalStyle } from 'styled-components'
-import { Helmet } from "react-helmet";
 
 // Pass image as css instead of a dom element (img) style={{backgroundImage :  `url(${node.frontmatter.thumbnail})` }}
 
-const Tagss = ({ pageContext, data }) => {
-  const { tag } = pageContext
-  const { edges, totalCount } = data.list
-  //const tags = data.tags;
-  const tagHeader = `${totalCount} theme${
-    totalCount === 1 ? "" : "s"
-  } with the tag "${tag}"`
-
+const FeaturedThemes = (props) => {
+  //const tags = props.data.tags;
+  const featuredList = props.data.featured;
+  const { totalCount } = featuredList;
+  const listCount = `${totalCount}`
+  
   return (
-    <Layout>
+  <Layout>
     <Helmet>
-      <meta charSet="utf-8" />
-      <title>Themes tagged with "{tag}" | Discord Source</title>
-      <meta property="og:site_name" content="Discord Source"/>
-      <meta property="og:title" content={`Themes tagged with "` + tag + `" | Discord Source`}/>
-      <meta property="og:description" content={ "There are " + totalCount + ` Discordapp themes that are tagged with "` + tag + `". `}/>
-      <meta property="og:url" content="https://discordsource.com/themes/" />
+        <meta charSet="utf-8" />
+        <title>Theme Snippets | Discord Source</title>
+        <meta property="og:site_name" content="Discord Source"/>
+        <meta property="og:title" content="Theme Snippets"/>
+        <meta property="og:description" content="List of the best Discord Themes Snippets you can find on the market! Boost your gaming experience along with your hardcore Discord chatting skills today."/>
+        <meta property="og:url" content="https://discordsource.com/themes/snippets/" />
     </Helmet>
     <Container>
     <GlobalStyle />
       <Content>
       <TitleBarHeadroom disableInlineStyles>
         <TitleBar>
-          <Count>#Themes <span>{tagHeader}</span></Count>
+          <Count>#Snippets <span>({listCount})</span></Count>
           <RightSide>
             <Search placeholder="Search Themes library (WIP)" ></Search>
             <Help target="blank" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" data-balloon="Need help with theme installation?" data-balloon-pos="left">?</Help>
@@ -59,25 +58,24 @@ const Tagss = ({ pageContext, data }) => {
       </TitleBarHeadroom>
 
         <Main>
-          <Wrapper>
-            {edges.map(({ node }) => {
-              return (
-                <LazyLoad key={node.id} height="10rem">
-                  <Card
-                  title={node.frontmatter.title} 
-                  thumbnail={node.frontmatter.thumbnail}
-                  slug={node.fields.slug}
-                  status={node.frontmatter.status}
-                  tags={node.frontmatter.tags}
-                  author={node.frontmatter.author_id}
-                  excerpt={node.excerpt}
-                  demo={node.frontmatter.demo}
-                  mode={node.frontmatter.style}
-                  featured= {node.frontmatter.featured}
-                  />
-                </LazyLoad>
-              )
-            })}
+            <Wrapper>
+            {featuredList.edges.map(({ node }, i) => (
+            <LazyLoad key={node.id} height="10rem">
+              <Card
+              title={node.frontmatter.title} 
+              thumbnail={node.frontmatter.thumbnail}
+              slug={node.fields.slug}
+              status={node.frontmatter.status}
+              tags={node.frontmatter.tags}
+              author={node.frontmatter.author_id}
+              excerpt={node.excerpt}
+              demo={node.frontmatter.demo}
+              style={node.frontmatter.style}
+              featured={node.frontmatter.featured}
+              snippet={node.frontmatter.snippet}
+              />
+            </LazyLoad>
+            ))}
           </Wrapper>
         </Main>
       </Content>
@@ -91,48 +89,41 @@ const Tagss = ({ pageContext, data }) => {
     <HelpContainer>
         <HelpBtn data-balloon="Need help with theme installation?" data-balloon-pos="left" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" target="blank">?</HelpBtn>
     </HelpContainer>
-    </Layout>
-  )
+  </Layout>
+)
 }
 
-Tagss.propTypes = {
-    pageContext: PropTypes.shape({
-    tag: PropTypes.string.isRequired,
-  }),
-  data: PropTypes.shape({
-    list: PropTypes.shape({
-      totalCount: PropTypes.number.isRequired,
-      edges: PropTypes.arrayOf(
-        PropTypes.shape({
-          node: PropTypes.shape({
-            frontmatter: PropTypes.shape({
-              title: PropTypes.string.isRequired,
-            }),
-            fields: PropTypes.shape({
-              slug: PropTypes.string.isRequired,
-            }),
-          }),
-        }).isRequired
-      ),
-    }),
-  }),
-}
+export default FeaturedThemes;
 
-export default Tagss
-
-export const pageQuery = graphql`
-  query($tag: String) {
-    list: allMarkdownRemark( filter: { frontmatter: { tags: { in: [$tag] } } collection: { eq: "themes" } } sort: { fields: [frontmatter___title], order: ASC} ) {
-      ...themeFragment
+export const allFeaturedThemesQuery = graphql`
+query {
+  allMarkdownRemark(filter: {collection: {eq: "themes"} } sort: { fields: [frontmatter___title], order: ASC}) {
+    group(field: collection) {
+      fieldValue
+      totalCount
     }
+    ...themeFragment
+  },
+  featured: allMarkdownRemark(filter: {collection: {eq: "themes"} frontmatter: { snippet: { eq: true } } } sort: { fields: [frontmatter___title], order: ASC} ) {
+    group(field: collection) {
+      fieldValue
+      totalCount
+    }
+    ...themeFragment
   }
+}
 `
 
 const Content = styled.section`
+
 `
+
 const Wrapper = styled.div`
+
 `
+
 const Main = styled.div`
+
 `
 
 const Container = styled.div`
@@ -179,7 +170,7 @@ const Container = styled.div`
     &::-webkit-scrollbar {
       width: 8px;
     }
-    a:not(.icon):not(.anchor):not([class*="Btn"]):not(.imgContainer):not([class*="FeaturedIcon"]):not([class*="ImageContainer"]):not([class*="ThumbnailLink"]) {
+    a:not([class*="LinkStatus"]):not(.icon):not(.anchor):not([class*="Btn"]):not(.imgContainer):not([class*="FeaturedIcon"]):not([class*="ImageContainer"]):not([class*="ThumbnailLink"]) {
       display: inline-block;
       transition: color 250ms, text-shadow 250ms;
       color: #000;
@@ -309,7 +300,6 @@ const Search = styled.input`
   transition: .2s ease-in-out opacity;
   border-radius: 2px;
   font-size: 0.7rem;
-  align-self: center;
   background-color: rgba(0, 0, 0, 0.1);
   padding: 0.3rem 0.6rem;
   color: #262626;
@@ -397,7 +387,7 @@ const UploadContainer = styled.div`
   }
 `
 
-const HelpBtn = styled.a`
+const HelpBtn = styled(Link)`
 
 `
 
@@ -467,7 +457,7 @@ const GlobalStyle = createGlobalStyle`
         }
       }
       ${Main} {
-        a:not(.icon):not(.anchor):not([class*="Btn"]):not(.imgContainer):not([class*="FeaturedIcon"]):not([class*="ImageContainer"]) {
+        a:not([class*="LinkStatus"]):not(.icon):not(.anchor):not([class*="Btn"]):not(.imgContainer):not([class*="FeaturedIcon"]):not([class*="ImageContainer"]) {
           color: #fff;
         }
       }

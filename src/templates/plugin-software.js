@@ -1,5 +1,6 @@
 import React from "react"
 import PropTypes from "prop-types"
+import Layout from '../components/layout'
 //import Info from '../components/plugin-info'
 //import plugin from '../styles/plugin-software.module.scss'
 import { graphql, Link } from "gatsby"
@@ -20,7 +21,7 @@ const Software = ({ pageContext, data }) => {
   } compatible with "${softwares}"`
   
   return (
-    <>
+    <Layout>
       <GlobalStyle />
       <Helmet>
         <meta charSet="utf-8" />
@@ -74,7 +75,7 @@ const Software = ({ pageContext, data }) => {
       <HelpBtn>
           <Link data-balloon="Want to publish your plugin?" data-balloon-pos="left" to="/plugins/upload-a-plugin" target="blank">?</Link>
       </HelpBtn>
-    </>
+    </Layout>
   )
 }
 

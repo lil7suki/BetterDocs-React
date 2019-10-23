@@ -4,10 +4,10 @@ import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 import AdSense from 'react-adsense';
 import styled from 'styled-components';
-import Header from 'src/components/header'
-import Footer from 'src/components/footer'
-import Announcement from 'src/components/announcement';
-import * as variable from 'src/styles/variables'
+import Header from './header'
+import Footer from './footer'
+import Announcement from './announcement';
+import * as variable from '../styles/variables'
 //<link rel="manifest" href="/site.webmanifest"/>
 //var time = new Date().getHours();
 //<html lang="en" class={0 <= time&&time < 7 && "dark"} id={17 <= time&&time < 24 && "dark"} /> 
@@ -26,7 +26,7 @@ const Layout = ({ children }) => (
       }
     `}
     render={(data) => (
-        <>
+        <div>
           <GlobalStyle />
           <Helmet
           title={data.site.siteMetadata.title}
@@ -77,7 +77,7 @@ const Layout = ({ children }) => (
           </Ad>
           }
           <Footer />
-        </>
+        </div>
     )}
   />
 )

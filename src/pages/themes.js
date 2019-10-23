@@ -1,4 +1,5 @@
 import React from 'react'
+import Layout from '../components/layout'
 //import theme from '../styles/themes.module.scss'
 //import featured from '../styles/theme-featured-section.module.scss'
 import { graphql, Link } from "gatsby"
@@ -29,7 +30,7 @@ const Themes = (props) => {
   const listCount = `${totalCount}`
   
   return (
-  <>
+  <Layout>
     <GlobalStyle />
     <Helmet>
         <meta charSet="utf-8" />
@@ -170,7 +171,7 @@ const Themes = (props) => {
     <HelpContainer>
         <HelpBtn data-balloon="Need help with theme installation?" data-balloon-pos="left" href="https://youtu.be/MlRSS6ikKh0" target="blank">?</HelpBtn>
     </HelpContainer>
-  </>
+  </Layout>
 )
 }
 

@@ -1,5 +1,6 @@
 import React from 'react'
 import * as variable from 'src/styles/variables'
+import Layout from '../components/layout'
 import '../styles/tooltips.css'
 import Card from '../components/download/card'
 import Feature from '../components/download/feature'
@@ -20,7 +21,7 @@ const Wrapper = styled.div`
 `
 
 const DownloadPage = () => (
-  <>
+  <Layout>
     <Wrapper>
       <Card
       title="BandagedBD"
@@ -304,7 +305,7 @@ const DownloadPage = () => (
         />
       </Card>
     </Wrapper>
-  </>
+  </Layout>
 )
 
 export default DownloadPage
