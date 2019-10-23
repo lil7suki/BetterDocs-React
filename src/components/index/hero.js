@@ -11,9 +11,7 @@ import LazyLoad from "react-lazyload"
 const Hero = () => (
   <Container>
     <TextContainer>
-        <Header
-        >The Discord Enhancement Project.
-        </Header>
+        <Header>The Source of All Discord Enhancements.</Header>
         <SubText>
           <Text>
           Custom Discord CSS themes + JS plugins, BTTV & FFZ twitch emotes and lots of extra tools.
@@ -107,6 +105,7 @@ const Container = styled.section`
         font-weight: bold;
         word-break: break-word;
         margin: 0;
+        word-break: keep-all;
     }
     ${SubText} {
         padding: 10px 0px;

@@ -52,7 +52,7 @@ const Tagss = ({ pageContext, data }) => {
               slug={node.fields.slug}
               status={node.frontmatter.status}
               tags={node.frontmatter.tags}
-              author={node.frontmatter.author.frontmatter.author_id}
+              author={node.frontmatter.author_id}
               excerpt={node.excerpt}
               softwares={node.frontmatter.software}
               key={node.id}/>

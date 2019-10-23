@@ -38,7 +38,7 @@ class Features extends React.Component {
           }
           ...themeFragment
         },
-        second:allMarkdownRemark(filter: { collection: { eq: "themes" } frontmatter: { featured: { eq: true } } }, limit: 5 skip: 5) {
+        second:allMarkdownRemark(filter: { collection: { eq: "themes" } frontmatter: { featured: { eq: true } } }, limit: 5 skip: 1) {
             group(field: collection) {
               fieldValue
               totalCount

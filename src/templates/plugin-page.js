@@ -36,14 +36,14 @@ const Plugins = (props) => {
     {pluginList.edges.map(({ node }, i) => (
     <Helmet
       key={node.id}
-      title={ node.frontmatter.title + ' by ' + node.frontmatter.author.frontmatter.author_id + ' | Discord Source' }
+      title={ node.frontmatter.title + ' by ' + node.frontmatter.author_id + ' | Discord Source' }
       meta={[
         { name: 'description', content: node.frontmatter.description },
         { name: 'keywords', content: 'Discord, BetterDiscord, EnhancedDiscord, TwitchCord, Discord Hacks, Hacks, Mods, Discord Themes, Themes, Discord Plugins, Plugins, Discord Bots, Bots, Discord Servers, Discord Style, Styles' },
       ]}>
       <meta property="og:site_name" content="Discord Source"/>
-      {node.frontmatter.author.frontmatter.author_id ?
-      <meta property="og:title" content={node.frontmatter.title + ' by ' + node.frontmatter.author.frontmatter.author_id}/>
+      {node.frontmatter.author_id ?
+      <meta property="og:title" content={node.frontmatter.title + ' by ' + node.frontmatter.author_id}/>
       :
       <meta property="og:title" content={node.frontmatter.title}/>
       }
@@ -124,7 +124,7 @@ const Plugins = (props) => {
               </Area>
               <AreaFlex>
                 <ContributionArea
-                author={node.frontmatter.author.frontmatter.author_id}
+                author={node.frontmatter.author_id}
                 maintainer={node.frontmatter.maintainer_name}
                 title={node.frontmatter.title}
                 areaHeader="Contributors"
@@ -239,10 +239,10 @@ const Plugins = (props) => {
           </TabPanell>
         </Tabbs>
         ))}
-        <MoreHeader><Link to={"profile/" + node.frontmatter.author.frontmatter.author_id}>{node.frontmatter.author.frontmatter.author_id}'s</Link> Plugins</MoreHeader>
+        <MoreHeader><Link to={"profile/" + node.frontmatter.author_id}>{node.frontmatter.author_id}'s</Link> Plugins</MoreHeader>
           <MoreContainer>
             <Authorcard 
-              author={node.frontmatter.author.frontmatter.author_id}
+              author={node.frontmatter.author_id}
             />
           </MoreContainer>
       </Wrapper>

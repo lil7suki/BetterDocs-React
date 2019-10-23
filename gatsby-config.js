@@ -201,7 +201,4 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
   ],
-  mapping: {
-    'MarkdownRemark.frontmatter.author': `MarkdownRemark.frontmatter.author_id`,
-  },
 }

@@ -24,15 +24,6 @@ class Features extends React.Component {
           }
           frontmatter {
             title
-            author {
-              frontmatter {
-                avatar_url
-                github_profile_url
-                discord_server
-                theme_developer
-                author_id
-              }
-            }
             description
             download
             github_profile_url
@@ -75,15 +66,6 @@ class Features extends React.Component {
           }
           frontmatter {
             title
-            author {
-              frontmatter {
-                avatar_url
-                github_profile_url
-                discord_server
-                theme_developer
-                author_id
-              }
-            }
             description
             download
             github_profile_url
@@ -121,15 +103,6 @@ class Features extends React.Component {
       }
       frontmatter {
         title
-        author {
-          frontmatter {
-            avatar_url
-            github_profile_url
-            discord_server
-            theme_developer
-            author_id
-          }
-        }
         description
         download
         github_profile_url
@@ -168,15 +141,6 @@ class Features extends React.Component {
           }
           frontmatter {
             title
-            author {
-              frontmatter {
-                avatar_url
-                github_profile_url
-                discord_server
-                theme_developer
-                author_id
-              }
-            }
             description
             download
             github_profile_url
@@ -219,15 +183,6 @@ class Features extends React.Component {
           }
           frontmatter {
             title
-            author {
-              frontmatter {
-                avatar_url
-                github_profile_url
-                discord_server
-                theme_developer
-                author_id
-              }
-            }
             description
             download
             github_profile_url

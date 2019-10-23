@@ -30,7 +30,7 @@ const pluginCard = ({author}) => (
     <GlobalStyle />
         {data.allMarkdownRemark.edges.map(({ node }, i) => (
             <>
-            {node.frontmatter.author.frontmatter.author_id === author &&
+            {node.frontmatter.author_id === author &&
             <Card>
                 {node.frontmatter.status ?
                     <Status title={"Status of " + node.frontmatter.title + ": " + node.frontmatter.status}>{node.frontmatter.status}</Status>

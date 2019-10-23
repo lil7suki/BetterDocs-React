@@ -143,7 +143,7 @@ const Themes = ({ pageContext, data }) => {
               </Area>
               <AreaFlex>
                 <ContributionArea
-                author={node.frontmatter.author.frontmatter.author_id}
+                author={node.frontmatter.author_id}
                 maintainer={node.frontmatter.maintainer_name}
                 contributor={contributorList.group}
                 title={node.frontmatter.title}
@@ -209,7 +209,7 @@ const Themes = ({ pageContext, data }) => {
               {previewList.group.map(image => (
                 <ScreenshotWrapper key={image.fieldValue}>
                   <ImageContainer>
-                    <img src={image.fieldValue} alt={node.frontmatter.title + " made by " + node.frontmatter.author.frontmatter.author_id}/>
+                    <img src={image.fieldValue} alt={node.frontmatter.title + " made by " + node.frontmatter.author_id}/>
                     <ImageOptions>
                       <OptionsWrapper>
                         <Linkka
@@ -257,10 +257,10 @@ const Themes = ({ pageContext, data }) => {
         </TabPanell>
         </Tabbs>
         ))}
-        <MoreHeader><Link to={"profile/" + node.frontmatter.author.frontmatter.author_id}>{node.frontmatter.author.frontmatter.author_id}'s</Link> Themes</MoreHeader>
+        <MoreHeader><Link to={"profile/" + node.frontmatter.author_id}>{node.frontmatter.author_id}'s</Link> Themes</MoreHeader>
           <MoreArea>
             <MoreCard
-            author={node.frontmatter.author.frontmatter.author_id}
+            author={node.frontmatter.author_id}
             />
           </MoreArea>
       </Wrapper>

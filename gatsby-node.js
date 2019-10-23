@@ -30,15 +30,7 @@ return graphql(`{
               slug
             }
             frontmatter {
-              author {
-                frontmatter {
-                  avatar_url
-                  github_profile_url
-                  discord_server
-                  theme_developer
-                  author_id
-                }
-              }
+              author_id
               tags
               software
               featured
@@ -62,15 +54,7 @@ return graphql(`{
               slug
             }
             frontmatter {
-              author {
-                frontmatter {
-                  avatar_url
-                  github_profile_url
-                  discord_server
-                  theme_developer
-                  author_id
-                }
-              }
+              author_id
               tags
               software
               featured
@@ -89,15 +73,7 @@ return graphql(`{
               slug
             }
             frontmatter {
-              author {
-                frontmatter {
-                  avatar_url
-                  github_profile_url
-                  discord_server
-                  theme_developer
-                  author_id
-                }
-              }
+              author_id
               ghcommentid
             }
           }
@@ -186,8 +162,8 @@ return graphql(`{
     let authors = []
     // Iterate through each post, putting all found tags into `tags`
     _.each(all, edge => {
-      if (_.get(edge, "node.frontmatter.author.frontmatter.author_id")) {
-        authors = authors.concat(edge.node.frontmatter.author.frontmatter.author_id)
+      if (_.get(edge, "node.frontmatter.author_id")) {
+        authors = authors.concat(edge.node.frontmatter.author_id)
       }
     })
     // Eliminate duplicate tags
@@ -233,7 +209,7 @@ return graphql(`{
         context: {
           slug: node.fields.slug,
           ghcommentid: node.frontmatter.ghcommentid,
-          authorid: node.frontmatter.author.frontmatter.author_id,
+          authorid: node.frontmatter.author_id,
         }, // additional data can be passed via context
         })
     })

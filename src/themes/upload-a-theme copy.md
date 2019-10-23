@@ -1,5 +1,5 @@
 ---
-title: Upload a theme
+title: Upload a theme 2
 sub: Uploading a plugin is as easy as 1, 2, 3...uhh and maybe more.
 software: [BandagedBD,EnhancedDiscord,Powercord,DiscordInjections,BetterDiscord]
 description: Want to publish your plugin to our Showcase? Follow these instructions slow & carefully to get your plugin featured for free!
@@ -25,8 +25,8 @@ featured: true
 snippet: true
 auto: false
 style: dark
-author: placeholder
 layout: default
+author: placeholder
 ghcommentid: 441
 date: 2018-10-26T15:27:19.930Z
 ---

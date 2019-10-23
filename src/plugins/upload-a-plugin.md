@@ -3,11 +3,29 @@ title: Upload a Plugin
 sub: Uploading a plugin is as easy as 1, 2, 3...uhh and maybe more.
 software: [BandagedBD,EnhancedDiscord,Powercord,DiscordInjections,BetterDiscord]
 description: Want to publish your plugin to our Showcase? Follow these instructions slow & carefully to get your plugin featured for free!
+download: link
 status: none
 maintainer_name: Placeholder
-contributor_name: [Placeholder]
+contributor_name: Placeholder
+github_profile_url: Placeholder
+github_source_url: Placeholder
+github_issue_url: Placeholder
+gitlab_profile_url: Placeholder
+gitlab_source_url: Placeholder
+gitlab_issue_url: Placeholder
+npm_profile_url: Placeholder
+npm_source_url: Placeholder
+thumbnail: placeholder
+npm_i: placeholder
+avatar_url: link
+discord_server: Placeholder
+previews: [url, url]
+tags: [tag, tags]
 author: placeholder
+dependency: [link, link]
+featured: true
 ghcommentid: 441
+layout: default
 date: 2018-10-26T15:27:19.930Z
 ---
 # Publish your work
