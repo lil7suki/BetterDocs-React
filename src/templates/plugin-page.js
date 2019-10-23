@@ -1,5 +1,4 @@
 import React from 'react'
-import Layout from '../components/layout'
 import { graphql, Link } from 'gatsby'
 import Sidebar from '../components/plugins/sidebar'
 import AniLink from "gatsby-plugin-transition-link/AniLink"
@@ -32,7 +31,7 @@ const Plugins = (props) => {
   const git = props.data.github;
 
   return (
-  <Layout>
+  <>
     {pluginList.edges.map(({ node }, i) => (
     <Helmet
       key={node.id}
@@ -264,7 +263,7 @@ const Plugins = (props) => {
       <div>{node.frontmatter.title}</div>
     </MobileHeader>
     ))}
-  </Layout>
+  </>
 )
 }
 

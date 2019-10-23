@@ -3,11 +3,10 @@ import { Link } from 'gatsby'
 //import style from '../styles/more.module.scss'
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components'
-import Layout from '../components/layout'
 import * as variable from '../styles/variables'
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <GlobalStyle />
     <Container>
         <Wrapper>
@@ -53,7 +52,7 @@ const IndexPage = () => (
             </Tab>
         </Wrapper>
     </Container>
-  </Layout>
+  </>
 )
 
 export default IndexPage

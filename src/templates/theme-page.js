@@ -1,5 +1,4 @@
 import React from 'react'
-import Layout from '../components/layout'
 //import style from '../styles/theme-page.module.scss'
 import { graphql, Link } from "gatsby"
 import AniLink from "gatsby-plugin-transition-link/AniLink"
@@ -45,7 +44,7 @@ const Themes = ({ pageContext, data }) => {
   /*const { authorid } = pageContext*/
 
   return (
-  <Layout>
+  <>
     <GlobalStyle />
     {themeList.edges.map(({ node }, i) => (
     <Helmet
@@ -289,7 +288,7 @@ const Themes = ({ pageContext, data }) => {
       <Text>{node.frontmatter.title}</Text>
     </MobileHeader>
     ))}
-  </Layout>
+  </>
 )
 }
 //<Sidebar />

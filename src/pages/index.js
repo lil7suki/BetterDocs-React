@@ -1,6 +1,5 @@
 import React from 'react'
 //import style from 'src/styles/index.module.scss'
-import Layout from 'src/components/layout'
 import Hero from 'src/components/index/hero'
 import Features from 'src/components/index/features'
 //import Reasons from 'src/components/index/reasons'
@@ -9,7 +8,7 @@ import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components'
 
 const IndexPage = () => (
-  <Layout>
+  <>
     <GlobalStyle />
     <Hero />
     <Container>
@@ -23,7 +22,7 @@ const IndexPage = () => (
       </WaveContainer>
       <Features />
     </Container>
-  </Layout>
+  </>
 )
 
 export default IndexPage

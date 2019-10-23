@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Layout from '../components/layout'
 //import plugin from '../styles/plugin-tags.module.scss'
 import { graphql, Link } from "gatsby"
 import SoftwareBar from '../components/plugins/software-bar'
@@ -20,7 +19,7 @@ const Tagss = ({ pageContext, data }) => {
   } with the tag "${tag}"`
 
   return (
-    <Layout>
+    <>
       <GlobalStyle />
       <Helmet>
         <meta charSet="utf-8" />
@@ -72,7 +71,7 @@ const Tagss = ({ pageContext, data }) => {
       <HelpBtn>
           <Link data-balloon="Want to publish your plugin?" data-balloon-pos="left" to="/plugins/upload-a-plugin" target="blank">?</Link>
       </HelpBtn>
-    </Layout>
+    </>
   )
 }
 

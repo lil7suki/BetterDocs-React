@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Layout from '../components/layout'
 //import style from '../styles/author-page.module.scss'
 import { graphql, Link } from "gatsby"
 import Helmet from 'react-helmet'
@@ -22,7 +21,7 @@ const Author = ({ pageContext, data }) => {
   //} from "${authors}"`
 
   return (
-    <Layout>
+    <>
     <GlobalStyle />
         {data.authors.edges.map(({ node }) => (
             <Helmet
@@ -173,7 +172,7 @@ const Author = ({ pageContext, data }) => {
       </Showcase>
       </Flex>
     </Container>
-    </Layout>
+    </>
   )
 }
 

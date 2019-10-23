@@ -1,6 +1,5 @@
 import React from "react"
 import PropTypes from "prop-types"
-import Layout from '../components/layout'
 //import style from '../styles/themes-tags.module.scss'
 import { graphql, Link } from "gatsby"
 import Headroom from 'react-headroom';
@@ -24,74 +23,74 @@ const Tagss = ({ pageContext, data }) => {
   } with the tag "${tag}"`
 
   return (
-    <Layout>
-    <Helmet>
-      <meta charSet="utf-8" />
-      <title>Themes tagged with "{tag}" | Discord Source</title>
-      <meta property="og:site_name" content="Discord Source"/>
-      <meta property="og:title" content={`Themes tagged with "` + tag + `" | Discord Source`}/>
-      <meta property="og:description" content={ "There are " + totalCount + ` Discordapp themes that are tagged with "` + tag + `". `}/>
-      <meta property="og:url" content="https://discordsource.com/themes/" />
-    </Helmet>
-    <Container>
-    <GlobalStyle />
-      <Content>
-      <TitleBarHeadroom disableInlineStyles>
-        <TitleBar>
-          <Count>#Themes <span>{tagHeader}</span></Count>
-          <RightSide>
-            <Search placeholder="Search Themes library (WIP)" ></Search>
-            <Help target="blank" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" data-balloon="Need help with theme installation?" data-balloon-pos="left">?</Help>
-            <Upload
-            data-balloon="Want to publish your theme?" data-balloon-pos="left"
-            to="/theme/upload-a-theme/">
-              <svg id='Capa_1' xmlns='http://www.w3.org/2000/svg' width='433.5' height='433.5'
-              viewBox='0 0 433.5 433.5'>
-                  <g id='file-upload'>
-                      <polygon points='140.25,331.5 293.25,331.5 293.25,178.5 395.25,178.5 216.75,0 38.25,178.5 140.25,178.5'
-                      />
-                      <rect x='38.25' y='382.5' width='357' height='51' />
-                  </g>
-              </svg>
-            </Upload>
-          </RightSide>
-        </TitleBar>
-      </TitleBarHeadroom>
+    <>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <title>Themes tagged with "{tag}" | Discord Source</title>
+        <meta property="og:site_name" content="Discord Source"/>
+        <meta property="og:title" content={`Themes tagged with "` + tag + `" | Discord Source`}/>
+        <meta property="og:description" content={ "There are " + totalCount + ` Discordapp themes that are tagged with "` + tag + `". `}/>
+        <meta property="og:url" content="https://discordsource.com/themes/" />
+      </Helmet>
+      <Container>
+      <GlobalStyle />
+        <Content>
+        <TitleBarHeadroom disableInlineStyles>
+          <TitleBar>
+            <Count>#Themes <span>{tagHeader}</span></Count>
+            <RightSide>
+              <Search placeholder="Search Themes library (WIP)" ></Search>
+              <Help target="blank" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" data-balloon="Need help with theme installation?" data-balloon-pos="left">?</Help>
+              <Upload
+              data-balloon="Want to publish your theme?" data-balloon-pos="left"
+              to="/theme/upload-a-theme/">
+                <svg id='Capa_1' xmlns='http://www.w3.org/2000/svg' width='433.5' height='433.5'
+                viewBox='0 0 433.5 433.5'>
+                    <g id='file-upload'>
+                        <polygon points='140.25,331.5 293.25,331.5 293.25,178.5 395.25,178.5 216.75,0 38.25,178.5 140.25,178.5'
+                        />
+                        <rect x='38.25' y='382.5' width='357' height='51' />
+                    </g>
+                </svg>
+              </Upload>
+            </RightSide>
+          </TitleBar>
+        </TitleBarHeadroom>
 
-        <Main>
-          <Wrapper>
-            {edges.map(({ node }) => {
-              return (
-                <LazyLoad key={node.id} height="10rem">
-                  <Card
-                  title={node.frontmatter.title} 
-                  thumbnail={node.frontmatter.thumbnail}
-                  slug={node.fields.slug}
-                  status={node.frontmatter.status}
-                  tags={node.frontmatter.tags}
-                  author={node.frontmatter.author_id}
-                  excerpt={node.excerpt}
-                  demo={node.frontmatter.demo}
-                  mode={node.frontmatter.style}
-                  featured= {node.frontmatter.featured}
-                  />
-                </LazyLoad>
-              )
-            })}
-          </Wrapper>
-        </Main>
-      </Content>
+          <Main>
+            <Wrapper>
+              {edges.map(({ node }) => {
+                return (
+                  <LazyLoad key={node.id} height="10rem">
+                    <Card
+                    title={node.frontmatter.title} 
+                    thumbnail={node.frontmatter.thumbnail}
+                    slug={node.fields.slug}
+                    status={node.frontmatter.status}
+                    tags={node.frontmatter.tags}
+                    author={node.frontmatter.author_id}
+                    excerpt={node.excerpt}
+                    demo={node.frontmatter.demo}
+                    mode={node.frontmatter.style}
+                    featured= {node.frontmatter.featured}
+                    />
+                  </LazyLoad>
+                )
+              })}
+            </Wrapper>
+          </Main>
+        </Content>
 
-    </Container>
-    <UploadContainer>
-        <UploadBtn to="/theme/upload-a-theme/">
-        +
-        </UploadBtn>
-    </UploadContainer>
-    <HelpContainer>
-        <HelpBtn data-balloon="Need help with theme installation?" data-balloon-pos="left" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" target="blank">?</HelpBtn>
-    </HelpContainer>
-    </Layout>
+      </Container>
+      <UploadContainer>
+          <UploadBtn to="/theme/upload-a-theme/">
+          +
+          </UploadBtn>
+      </UploadContainer>
+      <HelpContainer>
+          <HelpBtn data-balloon="Need help with theme installation?" data-balloon-pos="left" href="https://www.youtube.com/watch?v=MlRSS6ikKh0" target="blank">?</HelpBtn>
+      </HelpContainer>
+    </>
   )
 }
 

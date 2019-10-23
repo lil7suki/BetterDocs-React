@@ -1,5 +1,4 @@
 import React from 'react'
-import Layout from '../components/layout'
 import { Helmet } from "react-helmet";
 import { graphql, Link } from 'gatsby'
 import '../styles/tooltips.css'
@@ -24,7 +23,7 @@ const Plugins = (props) => {
   }`
   
   return (
-  <Layout>
+  <>
     <GlobalStyle />
     <Helmet>
       <meta charSet="utf-8" />
@@ -230,7 +229,7 @@ const Plugins = (props) => {
     <HelpBtn>
         <Link data-balloon="Want to publish your plugin?" data-balloon-pos="left" to="/plugins/upload-a-plugin" target="blank">?</Link>
     </HelpBtn>
-  </Layout>
+  </>
 )
 }
 
